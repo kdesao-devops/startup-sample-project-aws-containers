@@ -1,6 +1,6 @@
 name: Deploy Sandbox
 
-# First time deploying this app on the SEA
+# First time deploying this app on the SEA second try
 
 on:
   push:
