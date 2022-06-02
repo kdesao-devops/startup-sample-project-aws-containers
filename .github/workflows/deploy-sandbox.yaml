@@ -1,7 +1,5 @@
 name: Deploy Sandbox
 
-# First time deploying this app on the SEA
-
 on:
   push:
     branches: [main]
