@@ -1,5 +1,6 @@
 name: Pull Request
 
+# First time deploying this app on the SEA
 
 on:
   pull_request:
