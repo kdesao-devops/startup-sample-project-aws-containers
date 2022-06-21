@@ -1,0 +1,23 @@
+name: Example of axios action
+on: [ push ]
+jobs:
+    test-curl-action:
+        name: 'Perform REST API'
+        runs-on: ubuntu-latest
+        steps:
+            - name: 'Call API'
+              uses: actionsflow/axios@v1
+              id: api
+              with:
+                url: 'https://api.github.com/search/issues?q=2518222084+in:title+repo:kdesao-devops/startup-sample-project-aws-containers+state:open'
+                method: 'GET'
+            
+            - name: Update Pull Request
+              uses: actions/github-script@v3
+              with:
+                script: |
+                  var ev = JSON.stringify(${{ steps.api.outputs['data'] }});
+                  var test = JSON.parse(ev)
+                  console.log(`Message ${ev}`)
+                  console.log(`Message2 ${test}`)
+                  console.log(`Message3 ${test['items'][0]['number']}`)
